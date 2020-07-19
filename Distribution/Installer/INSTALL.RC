@@ -1,0 +1,14 @@
+//---------------------------------------------//
+//                                             //
+//    INSTALL. RC                              //
+//                                             //
+//    Copyright (C) 1994 by Eduardo Bezerra    //
+//                                             //
+//---------------------------------------------//
+
+
+#include "install.rh"
+
+
+InstallIcon	ICON		"install.ico"
+

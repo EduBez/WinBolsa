@@ -1,0 +1,1201 @@
+//---------------------------------------------//
+//                                             //
+//    WINBOLSA. RC                             //
+//                                             //
+//    Copyright (C) 1994 by Eduardo Bezerra    //
+//                                             //
+//---------------------------------------------//
+
+
+#ifndef WORKSHOP_INVOKED
+  #include <windows.h>
+#endif
+
+#include "winbolsa.rh"
+
+#include <owl\docview.rc>
+#include <owl\except.rc>
+#include <owl\validate.rc>
+#include <owl\mdi.rh>
+
+
+///////////////////////////////////////////
+//    Command Buttons & Application Bitmaps
+//    =====================================
+//
+CM_FILENEW			BITMAP "../resource/new.bmp"
+CM_FILEOPEN       BITMAP "../resource/open.bmp"
+CM_FILESAVE       BITMAP "../resource/save.bmp"
+CM_EDIT_COPY      BITMAP "../resource/copy.bmp"
+CM_FILEPRINT		BITMAP "../resource/print.bmp"
+
+CM_TERMINAL       BITMAP "../resource/terminal.bmp"
+CM_STOCKDIAL		BITMAP "../resource/dial.bmp"
+CM_STOCKHANGUP		BITMAP "../resource/hangup.bmp"
+CM_CONFIG			BITMAP "../resource/modem.bmp"
+CM_RUNQUERY			BITMAP "../resource/run.bmp"
+
+CM_BEGIN          BITMAP "../resource/begin.bmp"
+CM_FASTBACKWARD   BITMAP "../resource/fastback.bmp"
+CM_BACKWARD       BITMAP "../resource/backward.bmp"
+CM_FORWARD        BITMAP "../resource/forward.bmp"
+CM_FASTFORWARD    BITMAP "../resource/fastfrwd.bmp"
+CM_END            BITMAP "../resource/end.bmp"
+
+IDG_CLOCK      	BITMAP "../resource/clock.bmp"
+GRAYINGBITMAP		BITMAP "../resource/graying.bmp"
+SPLASHBITMAP		BITMAP "../resource/splash16.bmp"
+ABOUTBITMAP			BITMAP "../resource/wb66&66.bmp"
+
+//----------------------------------------------------------------------------//
+
+/////////////////////////////////////
+//    Button Bitmaps
+//    ===============================
+//
+IDB_MERCADO_AVISTA1	BITMAP "../resource/avista1.bmp"
+IDB_MERCADO_AVISTA3	BITMAP "../resource/avista3.bmp"
+IDB_MERCADO_AVISTA5	BITMAP "../resource/avista5.bmp"
+
+IDB_MERCADO_TERMO1	BITMAP "../resource/termo1.bmp"
+IDB_MERCADO_TERMO3	BITMAP "../resource/termo3.bmp"
+IDB_MERCADO_TERMO5	BITMAP "../resource/termo5.bmp"
+
+IDB_MERCADO_OPCOES1	BITMAP "../resource/opcoes1.bmp"
+IDB_MERCADO_OPCOES3	BITMAP "../resource/opcoes3.bmp"
+IDB_MERCADO_OPCOES5	BITMAP "../resource/opcoes5.bmp"
+
+IDB_MERCADO_FUTURO1	BITMAP "../resource/futuro1.bmp"
+IDB_MERCADO_FUTURO3	BITMAP "../resource/futuro3.bmp"
+IDB_MERCADO_FUTURO5	BITMAP "../resource/futuro5.bmp"
+
+IDB_ADD1 BITMAP "../resource/add1.bmp"
+IDB_ADD3 BITMAP "../resource/add3.bmp"
+IDB_ADD5 BITMAP "../resource/add5.bmp"
+
+IDB_REMOVE1 BITMAP "../resource/remove1.bmp"
+IDB_REMOVE3 BITMAP "../resource/remove3.bmp"
+IDB_REMOVE5 BITMAP "../resource/remove5.bmp"
+
+IDB_CLEAR1 BITMAP "../resource/clear1.bmp"
+IDB_CLEAR3 BITMAP "../resource/clear3.bmp"
+IDB_CLEAR5 BITMAP "../resource/clear5.bmp"
+
+IDB_OK      BITMAP "../resource/ok.bmp"
+IDB_OKFOCUS BITMAP "../resource/okfocus.bmp"
+IDB_OKDOWN  BITMAP "../resource/okdown.bmp"
+
+IDB_CANCEL      BITMAP "../resource/cancel.bmp"
+IDB_CANCELFOCUS BITMAP "../resource/cnlfocus.bmp"
+IDB_CANCELDOWN  BITMAP "../resource/cnldown.bmp"
+
+//----------------------------------------------------------------------------//
+
+/////////////////////////////////////
+//    Application Icons
+//    ===============================
+//
+WinBolsa				ICON "../resource/winbols1.ico"
+WinBolsaExtra		ICON "../resource/winbols2.ico"
+WinBolsaMDIChild  ICON "../resource/mdichild.ico"
+WinBolsaTerminal  ICON "../resource/terminal.ico"
+
+//----------------------------------------------------------------------------//
+
+/////////////////////////////////////
+//    String Tables
+//    ===============================
+//
+STRINGTABLE
+{
+
+ IDC_MERCADO_AVISTA_TIP  , " Mercado a Vista e Fração "
+ IDC_MERCADO_TERMO_TIP   , " Mercado a Termo "
+ IDC_MERCADO_OPCOES_TIP  , " Mercado de Opções "
+ IDC_MERCADO_FUTURO_TIP  , " Mercado Futuro "
+
+ CM_FILEPRINTERSETUP     , "Configura a impressora"
+ CM_TERMINAL             , "Comuta o aparecimento da janela do terminal de comunicação"
+ CM_STOCKDIAL            , "Liga para Bolsa Rio"
+ CM_STOCKHANGUP          , "Envia um comando de 'HANGUP' para o modem"
+ CM_CONFIG               , "Especifica dados do Participante, configura Discagem, Comunicação e Modem"
+ CM_HELPINDEX            , "Tópicos de ajuda disponíveis"
+ CM_HELPHELP             , "Utilizando o sistema de ajuda do Windows"
+ CM_ABOUT                , "Exibe informações sobre o sistema"
+
+ CM_EDIT_COPY            , "Copia o conteúdo da(s) célula(s) selecionada(s) para o clipboard"
+ CM_BEGIN                , "Move para o primeiro registro"
+ CM_FASTBACKWARD         , "Move para a página anterior de registros"
+ CM_BACKWARD             , "Move para o registro anterior"
+ CM_FORWARD              , "Move para o próximo registro"
+ CM_FASTFORWARD          , "Move para a próxima página de registros"
+ CM_END                  , "Move para o último registro"
+
+ CM_FILENEW_TIP          , " Novo documento "
+ CM_FILEOPEN_TIP         , " Abrir documento"
+ CM_FILESAVE_TIP         , " Salvar documento "
+ CM_FILEPRINT_TIP        , " Imprimir documento "
+ CM_EDIT_COPY_TIP        , " Copiar células "
+
+ CM_TERMINAL_TIP         , " Terminal "
+ CM_CONFIG_TIP           , " Configurar WinBolsa \256 "
+ CM_STOCKDIAL_TIP        , " Estabelecer comunicação "
+ CM_STOCKHANGUP_TIP      , " Encerrar comunicação "
+
+ CM_BEGIN_TIP            , "  Início  "
+ CM_FASTBACKWARD_TIP     , " Retrocesso Rápido "
+ CM_BACKWARD_TIP         , " Retrocesso "
+ CM_FORWARD_TIP          , "  Avanço  "
+ CM_FASTFORWARD_TIP      , " Avanço Rápido "
+ CM_END_TIP              , "    Fim   "
+
+ CM_GARQ_BOR_1_TIP       , " Consultar Bolsa "
+ CM_GARQ_BOR_2_TIP       , " Consultar Bolsa "
+ CM_GARQ_BOR_3_TIP       , " Consultar Bolsa "
+ CM_GARQ_BOR_4_TIP       , " Consultar Bolsa "
+ CM_GARQ_BOR_5_TIP       , " Consultar Bolsa "
+ CM_GARQ_BR_TIP          , " Consultar Bolsa "
+ CM_GARQ_BRG_TIP         , " Consultar Bolsa "
+ CM_GARQ_BRI_TIP         , " Consultar Bolsa "
+ CM_GARQ_BFR_1_TIP       , " Consultar Bolsa "
+ CM_GARQ_BFR_2_TIP       , " Consultar Bolsa "
+ CM_GARQ_BFR_3_TIP       , " Consultar Bolsa "
+ CM_GARQ_BS_TIP          , " Consultar Bolsa "
+ CM_GARQ_BSI_TIP         , " Consultar Bolsa "
+ CM_GARQ_BAS_1_TIP       , " Consultar Bolsa "
+ CM_GARQ_BAS_2_TIP       , " Consultar Bolsa "
+ CM_GARQ_BRJDATA_TIP     , " Consultar Bolsa "
+ CM_GARQ_BSPDATA_TIP     , " Consultar Bolsa "
+ CM_GARQ_BIG_TIP         , " Consultar Bolsa "
+ CM_GARQ_NEG_TIP         , " Consultar Bolsa "
+ CM_GARQ_HIS_TIP         , " Consultar Bolsa "
+ CM_GARQ_IND_TIP         , " Consultar Bolsa "
+
+ CM_GARQ_BOR_1           , "Consulta todo o Boletim de Fechamento Bolsa Rio - Mestre"
+ CM_GARQ_BOR_2           , "Consulta todo o Boletim de Fechamento Bolsa Rio - Índice de Fechamento do Pregão"
+ CM_GARQ_BOR_3           , "Consulta todo o Boletim de Fechamento Bolsa Rio - SENN Totais por Praça"
+ CM_GARQ_BOR_4           , "Consulta todo o Boletim de Fechamento Bolsa Rio - Índices do SEEN"
+ CM_GARQ_BOR_5           , "Consulta todo o Boletim de Fechamento Bolsa Rio - Cotações"
+
+ CM_GARQ_BR              , "Consulta Boletim de Fechamento Bolsa Rio - Mercados / Títulos";
+ CM_GARQ_BRx             , "Consulta Boletim de Fechamento Bolsa Rio por número de títulos e mercado"
+ CM_GARQ_BRA             , "Consulta Boletim de Fechamento Bolsa Rio por títulos em ordem alfabética de empresa"
+ CM_GARQ_BRG             , "Consulta Boletim de Fechamento Bolsa Rio por código de títulos"
+
+ CM_GARQ_BRI             , "Consulta Boletim de Fechamento Bolsa Rio - Índices da Bolsa Rio"
+
+ CM_GARQ_BFR_1           , "Consulta Bol. de Fech. Bolsa Rio 4 Últimos Pregões - Mestre"
+ CM_GARQ_BFR_2           , "Consulta Bol. de Fech. Bolsa Rio 4 Últimos Pregões - Índices"
+ CM_GARQ_BFR_3           , "Consulta Bol. de Fech. Bolsa Rio 4 Últimos Pregões - Cotações"
+
+ CM_GARQ_BS              , "Consulta Boletim de Fechamento BOVESPA"
+ CM_GARQ_BSx             , "Consulta Boletim de Fechamento BOVESPA por número de títulos e mercado"
+ CM_GARQ_BSG             , "Consulta Boletim de Fechamento BOVESPA por código de títulos"
+ CM_GARQ_BSI             , "Consulta Boletim de Fechamento BOVESPA - Índices"
+
+ CM_GARQ_BAS_1           , "Consulta Bol. de Fech. BOVESPA 4 Últimos Pregões - Mestre"
+ CM_GARQ_BAS_2           , "Consulta Bol. de Fech. BOVESPA 4 Últimos Pregões - Cotações"
+
+ CM_GARQ_BRJDATA         , "Consulta datas do Boletin de Fechamento - Bolsa Rio";
+ CM_GARQ_BSPDATA         , "Consulta datas do Boletin de Fechamento - Bolsa São Paulo";
+
+ CM_GARQ_BIG             , "Consulta Boletim Instantâneo"
+ CM_GARQ_BIG_NEGOCIADOS  , "Consulta Boletim Instantâneo por número de títulos e mercado"
+ CM_GARQ_BIG_ESPECIFICOS , "Consulta Boletim Instantâneo por títulos específicos"
+
+ CM_GARQ_NEG             , "Consulta Relação de Negócios por código de títulos e (ou) corretora"
+ CM_GARQ_HIS             , "Consulta Séries Históricas de Ações"
+ CM_GARQ_IND             , "Consulta Séries Históricas de Índices";
+}
+
+//----------------------------------------------------------------------------//
+
+/////////////////////////////////////
+//    Accelerators
+//    ===============================
+//
+ID_MENUACCEL ACCELERATORS
+{
+ "D", CM_STOCKDIAL,   VIRTKEY, ALT
+ "H", CM_STOCKHANGUP, VIRTKEY, ALT
+ "S", CM_CONFIG,      VIRTKEY, ALT
+}
+
+//----------------------------------------------------------------------------//
+
+/////////////////////////////////////
+//    Menus
+//    ===============================
+//
+IDM_FRAME_MENU MENU
+{
+	POPUP "&Arquivo"
+	{
+		POPUP "&Novo"
+		{
+			POPUP "Boletim"
+			{
+				POPUP "Fechamento"
+				{
+					POPUP "Bolsa Rio"
+					{
+						POPUP "Todo o Boletim"
+						{
+							MENUITEM "Mestre"                          , CM_BOLETIM_FECHAMENTO_RIO_TODO_MESTRE
+							MENUITEM "Índice de Fechamento do Pregão"  , CM_BOLETIM_FECHAMENTO_RIO_TODO_INDICE
+							MENUITEM "SENN - Totais por Praça"         , CM_BOLETIM_FECHAMENTO_RIO_TODO_TOTAIS_SENN
+							MENUITEM "Índices SENN"                    , CM_BOLETIM_FECHAMENTO_RIO_TODO_INDICES_SENN
+							MENUITEM "Cotações"                        , CM_BOLETIM_FECHAMENTO_RIO_TODO_COTACOES
+						}
+
+						MENUITEM "Mercados / Títulos"                 , CM_BOLETIM_FECHAMENTO_RIO_MERCTIT
+						MENUITEM "Índices"                            , CM_BOLETIM_FECHAMENTO_RIO_INDICES
+
+						POPUP "4 Últimos Pregões"
+						{
+							MENUITEM "Mestre"                          , CM_BOLETIM_FECHAMENTO_RIO_4ULT_MESTRE
+							MENUITEM "Índices"                         , CM_BOLETIM_FECHAMENTO_RIO_4ULT_INDICE
+							MENUITEM "Cotações"                        , CM_BOLETIM_FECHAMENTO_RIO_4ULT_COTACOES
+						}
+					}
+
+					POPUP "BOVESPA"
+					{
+						MENUITEM "Mercados / Títulos"                 , CM_BOLETIM_FECHAMENTO_BOVESPA_MERCTIT
+						MENUITEM "Índices"                            , CM_BOLETIM_FECHAMENTO_BOVESPA_INDICES
+
+						POPUP "4 Últimos Pregões"
+						{
+							MENUITEM "Mestre"                          , CM_BOLETIM_FECHAMENTO_BOVESPA_4ULT_MESTRE
+							MENUITEM "Cotações"                        , CM_BOLETIM_FECHAMENTO_BOVESPA_4ULT_COTACOES
+						}
+					}
+
+					POPUP "Datas"
+					{
+						MENUITEM "Bolsa Rio"                          , CM_BOLETIM_FECHAMENTO_DATAS_RIO
+						MENUITEM "Bolsa São Paulo"                    , CM_BOLETIM_FECHAMENTO_DATAS_SAOPAULO
+					}
+				}
+
+				MENUITEM "Instantâneo"                              , CM_BOLETIM_INSTANTANEO
+			}
+
+			POPUP "Séries Históricas"
+			{
+				MENUITEM "Ações"                                    , CM_SERIES_HISTORICAS_ACOES
+				MENUITEM "Índices"                                  , CM_SERIES_HISTORICAS_INDICES
+			}
+
+			MENUITEM "Relação de Negócios"                         , CM_RELACAO_DE_NEGOCIOS
+		}
+
+		MENUITEM "&Abrir..."                    , CM_FILEOPEN
+		MENUITEM "&Fechar"                      , CM_FILECLOSE
+		MENUITEM SEPARATOR
+		MENUITEM "&Salvar"                      , CM_FILESAVE
+		MENUITEM "Salvar &Como..."              , CM_FILESAVEAS
+
+		#if 0
+			MENUITEM SEPARATOR
+			MENUITEM "&Imprimir..."                 , CM_FILEPRINT
+			MENUITEM "&Configurar Impressora..."    , CM_FILEPRINTERSETUP
+		#endif
+
+		MENUITEM SEPARATOR
+		MENUITEM "&Sair\aAlt+F4"                , CM_EXIT
+	}
+
+	POPUP "Co&municação"
+	{
+		MENUITEM "C&onectar...\aAlt+D"          , CM_STOCKDIAL
+		MENUITEM "&Desconectar\aAlt+H"          , CM_STOCKHANGUP
+		MENUITEM SEPARATOR
+		MENUITEM "Co&nfigurar...\aAlt+S"        , CM_CONFIG
+	}
+
+	POPUP "&Janela"
+	{
+		MENUITEM "&Em Cascata"                  , CM_CASCADECHILDREN
+		MENUITEM "&Lado a Lado"                 , CM_TILECHILDREN
+		MENUITEM "&Organizar Ícones"            , CM_ARRANGEICONS
+		MENUITEM SEPARATOR
+		MENUITEM "Exibir &Terminal"             , CM_TERMINAL
+		MENUITEM SEPARATOR
+		MENUITEM "&Fechar Janelas"              , CM_CLOSECHILDREN
+	}
+
+	POPUP "Aj&uda"
+	{
+		MENUITEM "&Índice"                      , CM_HELPINDEX
+		MENUITEM "&Usando a Ajuda"              , CM_HELPHELP
+		MENUITEM SEPARATOR
+		MENUITEM "&Sobre o WinBolsa®..."        , CM_ABOUT
+	}
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_NO_GARQ MENU
+{
+ POPUP "&Editar"
+ {
+  MENUITEM "&Copiar\aCtrl+C"                 , CM_EDIT_COPY
+ }
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_TERMINAL MENU
+{
+  POPUP "&Editar"
+  {
+	 MENUITEM "&Copiar\aCtrl+C"               , CM_EDITCOPY
+  }
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_BOR_1 MENU
+{
+ POPUP "&Editar"
+ {
+  MENUITEM "&Copiar\aCtrl+C"                              , CM_EDIT_COPY
+ }
+
+ POPUP "&Consultar"
+ {
+  MENUITEM "-- Bol. de Fech. Bolsa Rio - Todo Boletim --" , 0, GRAYED
+  MENUITEM SEPARATOR
+  MENUITEM "&Mestre"                                      , CM_GARQ_BOR_1
+ }
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_BOR_2 MENU
+{
+ POPUP "&Editar"
+ {
+  MENUITEM "&Copiar\aCtrl+C"                              , CM_EDIT_COPY
+ }
+
+ POPUP "&Consultar"
+ {
+  MENUITEM "-- Bol. de Fech. Bolsa Rio - Todo Boletim --" , 0, GRAYED
+  MENUITEM SEPARATOR
+  MENUITEM "&Índice de Fechamento do Pregão"              , CM_GARQ_BOR_2
+ }
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_BOR_3 MENU
+{
+ POPUP "&Editar"
+ {
+  MENUITEM "&Copiar\aCtrl+C"                              , CM_EDIT_COPY
+ }
+
+ POPUP "&Consultar"
+ {
+  MENUITEM "-- Bol. de Fech. Bolsa Rio - Todo Boletim --" , 0, GRAYED
+  MENUITEM SEPARATOR
+  MENUITEM "&SENN - Totais por Praça"                     , CM_GARQ_BOR_3
+ }
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_BOR_4 MENU
+{
+ POPUP "&Editar"
+ {
+  MENUITEM "&Copiar\aCtrl+C"                              , CM_EDIT_COPY
+ }
+
+ POPUP "&Consultar"
+ {
+  MENUITEM "-- Bol. de Fech. Bolsa Rio - Todo Boletim --" , 0, GRAYED
+  MENUITEM SEPARATOR
+  MENUITEM "&Índices do SEEN"                             , CM_GARQ_BOR_4
+ }
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_BOR_5 MENU
+{
+ POPUP "&Editar"
+ {
+  MENUITEM "&Copiar\aCtrl+C"                              , CM_EDIT_COPY
+ }
+
+ POPUP "&Consultar"
+ {
+  MENUITEM "-- Bol. de Fech. Bolsa Rio - Todo Boletim --" , 0, GRAYED
+  MENUITEM SEPARATOR
+  MENUITEM "&Cotações"                                    , CM_GARQ_BOR_5
+ }
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_BR MENU
+{
+ POPUP "&Editar"
+ {
+  MENUITEM "&Copiar\aCtrl+C"                              , CM_EDIT_COPY
+ }
+
+ POPUP "&Consultar"
+ {
+  MENUITEM "-- Boletim de Fechamento - Bolsa Rio --"      , 0, GRAYED
+  MENUITEM SEPARATOR
+
+  MENUITEM "&Número de Títulos e Mercado..."              , CM_GARQ_BRx
+  MENUITEM "&Títulos em ordem alfabética de Empresa..."   , CM_GARQ_BRA
+  MENUITEM "&Código de Títulos..."                        , CM_GARQ_BRG
+ }
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_BRI MENU
+{
+ POPUP "&Editar"
+ {
+  MENUITEM "&Copiar\aCtrl+C"                              , CM_EDIT_COPY
+ }
+
+ POPUP "&Consultar"
+ {
+  MENUITEM "-- Boletim de Fechamento - Bolsa Rio --"      , 0, GRAYED
+  MENUITEM SEPARATOR
+  MENUITEM "&Índices da Bolsa Rio"                        , CM_GARQ_BRI
+ }
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_BFR_1 MENU
+{
+	POPUP "&Editar"
+	{
+		MENUITEM "&Copiar\aCtrl+C"   , CM_EDIT_COPY
+	}
+
+	POPUP "&Consultar"
+	{
+		MENUITEM "-- Bol. de Fech. Bolsa Rio 4 Últimos Pregões --", 0, GRAYED
+		MENUITEM SEPARATOR
+		MENUITEM "&Mestre..."        , CM_GARQ_BFR_1
+	}
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_BFR_2 MENU
+{
+	POPUP "&Editar"
+	{
+		MENUITEM "&Copiar\aCtrl+C"   , CM_EDIT_COPY
+	}
+
+	POPUP "&Consultar"
+	{
+		MENUITEM "-- Bol. de Fech. Bolsa Rio 4 Últimos Pregões --", 0, GRAYED
+		MENUITEM SEPARATOR
+		MENUITEM "&Índices..."       , CM_GARQ_BFR_2
+	}
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_BFR_3 MENU
+{
+	POPUP "&Editar"
+	{
+		MENUITEM "&Copiar\aCtrl+C"   , CM_EDIT_COPY
+	}
+
+	POPUP "&Consultar"
+	{
+		MENUITEM "-- Bol. de Fech. Bolsa Rio 4 Últimos Pregões --", 0, GRAYED
+		MENUITEM SEPARATOR
+		MENUITEM "&Cotações..."      , CM_GARQ_BFR_3
+	}
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_BS MENU
+{
+ POPUP "&Editar"
+ {
+  MENUITEM "&Copiar\aCtrl+C"                 , CM_EDIT_COPY
+ }
+
+ POPUP "&Consultar"
+ {
+  MENUITEM "-- Boletim de Fechamento - BOVESPA --", 0, GRAYED
+  MENUITEM SEPARATOR
+  MENUITEM "&Número de Títulos e Mercado..." , CM_GARQ_BSx
+  MENUITEM "&Código de Títulos..."           , CM_GARQ_BSG
+ }
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_BSI MENU
+{
+ POPUP "&Editar"
+ {
+  MENUITEM "&Copiar\aCtrl+C"                 , CM_EDIT_COPY
+ }
+
+ POPUP "&Consultar"
+ {
+  MENUITEM "-- Boletim de Fechamento - BOVESPA --", 0, GRAYED
+  MENUITEM SEPARATOR
+  MENUITEM "&Índices"                        , CM_GARQ_BSI
+ }
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_BAS_1 MENU
+{
+	POPUP "&Editar"
+	{
+		MENUITEM "&Copiar\aCtrl+C"   , CM_EDIT_COPY
+	}
+
+	POPUP "&Consultar"
+	{
+		MENUITEM "-- Bol. de Fech. BOVESPA 4 Últimos Pregões --", 0, GRAYED
+		MENUITEM SEPARATOR
+		MENUITEM "&Mestre..."        , CM_GARQ_BAS_1
+	}
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_BAS_2 MENU
+{
+	POPUP "&Editar"
+	{
+		MENUITEM "&Copiar\aCtrl+C"   , CM_EDIT_COPY
+	}
+
+	POPUP "&Consultar"
+	{
+		MENUITEM "-- Bol. de Fech. BOVESPA 4 Últimos Pregões --", 0, GRAYED
+		MENUITEM SEPARATOR
+		MENUITEM "&Cotações..."      , CM_GARQ_BAS_2
+	}
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_BRJDATA MENU
+{
+	POPUP "&Editar"
+	{
+		MENUITEM "&Copiar\aCtrl+C"   , CM_EDIT_COPY
+	}
+
+	POPUP "&Consultar"
+	{
+		MENUITEM "-- Datas do Boletin de Fechamento --", 0, GRAYED
+		MENUITEM SEPARATOR
+		MENUITEM "&Bolsa Rio"        , CM_GARQ_BRJDATA
+	}
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_BSPDATA MENU
+{
+	POPUP "&Editar"
+	{
+		MENUITEM "&Copiar\aCtrl+C"   , CM_EDIT_COPY
+	}
+
+	POPUP "&Consultar"
+	{
+		MENUITEM "-- Datas do Boletin de Fechamento --", 0, GRAYED
+		MENUITEM SEPARATOR
+		MENUITEM "&Bolsa São Paulo"  , CM_GARQ_BSPDATA
+	}
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_BIG MENU
+{
+ POPUP "&Editar"
+ {
+  MENUITEM "&Copiar\aCtrl+C"                 , CM_EDIT_COPY
+ }
+
+ POPUP "&Consultar"
+ {
+  MENUITEM "-- Boletim Instantâneo --"       , 0, GRAYED
+  MENUITEM SEPARATOR
+  MENUITEM "&Número de Títulos e Mercado..." , CM_GARQ_BIG_NEGOCIADOS
+  MENUITEM "&Código de Títulos..."           , CM_GARQ_BIG_ESPECIFICOS
+ }
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_NEG MENU
+{
+ POPUP "&Editar"
+ {
+  MENUITEM "&Copiar\aCtrl+C"                 , CM_EDIT_COPY
+ }
+
+ POPUP "&Consultar"
+ {
+  MENUITEM "-- Relação de Negócios --"       , 0, GRAYED
+  MENUITEM SEPARATOR
+  MENUITEM "&Código de Títulos..."           , CM_GARQ_NEG
+ }
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_HIS MENU
+{
+ POPUP "&Editar"
+ {
+  MENUITEM "&Copiar\aCtrl+C"         , CM_EDIT_COPY
+ }
+
+ POPUP "&Consultar"
+ {
+  MENUITEM "-- Séries Históricas --" , 0, GRAYED
+  MENUITEM SEPARATOR
+  MENUITEM "&Ações..."               , CM_GARQ_HIS
+ }
+}
+
+//----------------------------------------------------------------------------//
+
+IDM_GARQ_IND MENU
+{
+ POPUP "&Editar"
+ {
+  MENUITEM "&Copiar\aCtrl+C"         , CM_EDIT_COPY
+ }
+
+ POPUP "&Consultar"
+ {
+  MENUITEM "-- Séries Históricas --" , 0, GRAYED
+  MENUITEM SEPARATOR
+  MENUITEM "&Índices..."             , CM_GARQ_IND
+ }
+}
+
+//----------------------------------------------------------------------------//
+
+SplashDialog DIALOG 0, 0, 178, 119
+STYLE WS_POPUP | WS_VISIBLE | WS_BORDER // | DS_SETFONT | 0x04L
+FONT 8, "MS Sans Serif"
+{
+}
+
+//----------------------------------------------------------------------------//
+
+ModemDlgFrame DIALOG 0, 0, 188, 190
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU // | DS_SETFONT | 0x04L
+FONT 8, "MS Sans Serif"
+{
+ CONTROL "MHTAB.VBX;MhTab;MhTab101", IDC_MhTab, "VBControl", 0 | WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_TABSTOP, 3, 2, 182, 17
+}
+
+//----------------------------------------------------------------------------//
+
+ModemDlgFrame DLGINIT 
+{
+    103, 0x0400, 1265L,
+0x0500, 0x684d, 0x6154, 0x0162, 0x0000, 0xc003, 0xc0c0, 0x0500, 0x0600,
+0xffff, 0x2409, 0x00ff, 0x0000, 0x0000, 0xbc00, 0x0002, 0x0000, 0x0100,
+0x0102, 0x4d22, 0x2053, 0x6153, 0x736e, 0x5320, 0x7265, 0x6669, 0x2600,
+0x3775, 0x0d44, 0x0448, 0x0f1a, 0x5044, 0x2600, 0x8075, 0x5c1f, 0x0f04,
+0x0010, 0x0012, 0x1300, 0x1500, 0xffff, 0x0217, 0x0618, 0x0000, 0x1980,
+0x1a01, 0xc0c0, 0x00c0, 0x001b, 0x1c00, 0x0004, 0x001d, 0x1e00, 0x0000,
+0x001f, 0x0520, 0x0000, 0x2180, 0x0000, 0x0022, 0x0004, 0xfe00, 0x0100,
+0x0300, 0x0100, 0x0100, 0x0600, 0x0000, 0x0180, 0xc000, 0xc0c0, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0500, 0x0000,
+0x0080, 0x0000, 0x0000, 0x0000, 0x0000, 0x1000, 0x0000, 0x0080, 0x0100,
+0x4100, 0x1900, 0x0800, 0x0000, 0x0380, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0100, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0001, 0x0006, 0x8000, 0x0001,
+0xc0c0, 0x00c0, 0x0005, 0x8000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0010,
+0x8000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x5c2f, 0x5c2e, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0016, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0xfe00, 0x0100, 0x0300, 0x0100, 0x0100, 0x0600, 0x0000, 0x0180, 0xc000,
+0xc0c0, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0500, 0x0000, 0x0080, 0x0000, 0x0000, 0x0000, 0x0000, 0x1000, 0x0000,
+0x4180, 0x0100, 0xa000, 0x1900, 0x0800, 0x0000, 0x0380, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0100, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0001, 0x0006,
+0x8000, 0x0001, 0xc0c0, 0x00c0, 0x0005, 0x8000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0010, 0x8000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x7367, 0x7366, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0001, 0x0016, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0xfe00, 0x0100, 0x0300, 0x0100, 0x0100, 0x0600, 0x0000,
+0x0180, 0xc000, 0xc0c0, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0500, 0x0000, 0x0080, 0x0000, 0x0000, 0x0000, 0x0000,
+0x1000, 0x0000, 0xa080, 0x0100, 0xec00, 0x1900, 0x0800, 0x0000, 0x0380,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0100,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001,
+0x0001, 0x0006, 0x8000, 0x0001, 0xc0c0, 0x00c0, 0x0005, 0x8000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0010, 0x8000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x621f, 0x621e, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0002, 0x0016, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0xfe00, 0x0100, 0x0300, 0x0100, 0x0100,
+0x0600, 0x0000, 0x0180, 0xc000, 0xc0c0, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0500, 0x0000, 0x0080, 0x0000, 0x0000,
+0x0000, 0x0000, 0x1000, 0x0000, 0xec80, 0x0100, 0x6300, 0x1901, 0x0800,
+0x0000, 0x0380, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0100, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x002b, 0x0001, 0x0006, 0x8000, 0x0001, 0xc0c0, 0x00c0, 0x0005,
+0x8000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0010, 0x8000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x674f,
+0x674e, 0x0000, 0x0000, 0x0000, 0x0000, 0x0003, 0x0016, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x2b00, 0x2c00,
+0x0000, 0x002d, 0x022e, 0x002f, 0x3000, 0x0010, 0x8000, 0x0036, 0x3537,
+0x0000, 0x0900, 0x2000, 0x4220, 0x6c6f, 0x6173, 0x2020, 0x000c, 0x2020,
+0x6944, 0x6373, 0x6761, 0x6d65, 0x2020, 0x0009, 0x2020, 0x6f4d, 0x6564,
+0x206d, 0x0f20, 0x2000, 0x4320, 0x6d6f, 0x6e75, 0x6369, 0xe761, 0x6fe3,
+0x2020, 0x0048, 0x054a, 0x4f00, 0x0000, 0x0050, 0x0000, 0x5300, 0x0000,
+0x0000, 0x0054, 0x5500, 0x000c, 0x0256, 0x0057, 0x5800, 0xffff, 0x015b,
+0x5c00, 0x0000, "\xff"
+    101, 0x0400, 1270L,
+0x0a00, 0x4449, 0x5f43, 0x484d, 0x4154, 0x3142, 0x0001, 0x0300, 0xe8f0,
+0x00b8, 0x0005, 0xff06, 0x09ff, 0xfee8, 0x0000, 0x0000, 0x0000, 0x02bc,
+0x0000, 0x0000, 0x0201, 0x2201, 0x534d, 0x5320, 0x6e61, 0x2073, 0x6553,
+0x6972, 0x0066, 0x57ae, 0x23c7, 0x48c7, 0x1a04, 0x0ed7, 0x0050, 0x57ae,
+0x15a0, 0x046c, 0x100f, 0x1200, 0x0000, 0x0013, 0xff15, 0x17ff, 0x1802,
+0x0006, 0x8000, 0x0119, 0x0f1a, 0x0000, 0x1b80, 0x0000, 0x041c, 0x1d00,
+0x0000, 0x001e, 0x1f00, 0x2000, 0x0005, 0x8000, 0x0021, 0x2200, 0x0400,
+0x0000, 0x00fe, 0x0001, 0x0003, 0x0001, 0x0001, 0x0006, 0x8000, 0x0001,
+0x000f, 0x8000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0005, 0x8000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0010,
+0x8000, 0x0000, 0x0001, 0x0043, 0x001b, 0x0008, 0x8000, 0x0003, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0600,
+0x0000, 0x0180, 0x0f00, 0x0000, 0x0580, 0x0000, 0x0080, 0x0000, 0x0000,
+0x0000, 0x1000, 0x0000, 0x0080, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x6700, 0x6657, 0x0057, 0x0000, 0x0000,
+0x0000, 0x0000, 0x1800, 0x0e00, 0x0001, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x00fe, 0x0001, 0x0003, 0x0001, 0x0001, 0x0006,
+0x8000, 0x0001, 0x000f, 0x8000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0005, 0x8000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0010, 0x8000, 0x0043, 0x0001, 0x00a2, 0x001b, 0x0008, 0x8000,
+0x0003, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0001, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0600, 0x0000, 0x0180, 0x0f00, 0x0000, 0x0580, 0x0000, 0x0080,
+0x0000, 0x0000, 0x0000, 0x1000, 0x0000, 0x0080, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0xe700, 0xe64c, 0x004c,
+0x0000, 0x0000, 0x0000, 0x0100, 0x1800, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x00fe, 0x0001, 0x0003, 0x0001,
+0x0001, 0x0006, 0x8000, 0x0001, 0x000f, 0x8000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0005, 0x8000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0010, 0x8000, 0x00a2, 0x0001, 0x00ee, 0x001b,
+0x0008, 0x8000, 0x0003, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0600, 0x0000, 0x0180, 0x0f00, 0x0000, 0x0580,
+0x0000, 0x0080, 0x0000, 0x0000, 0x0000, 0x1000, 0x0000, 0x0080, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x5700,
+0x5619, 0x0019, 0x0000, 0x0000, 0x0000, 0x0200, 0x1800, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x00fe, 0x0001,
+0x0003, 0x0001, 0x0001, 0x0006, 0x8000, 0x0001, 0x000f, 0x8000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0005, 0x8000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0010, 0x8000, 0x00ee, 0x0001,
+0x0165, 0x001b, 0x0008, 0x8000, 0x0003, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x2b00, 0x0000, 0x0600, 0x0000, 0x0180, 0x0f00,
+0x0000, 0x0580, 0x0000, 0x0080, 0x0000, 0x0000, 0x0000, 0x1000, 0x0000,
+0x0080, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x7700, 0x7619, 0x0019, 0x0000, 0x0000, 0x0000, 0x0300, 0x1800,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x002b, 0x002c, 0x2d00, 0x2e00, 0x2f02, 0x0000, 0x1030, 0x0000,
+0x3680, 0x3700, 0x0035, 0x0000, 0x0009, 0x2020, 0x6f42, 0x736c, 0x2061,
+0x0c20, 0x2000, 0x4420, 0x7369, 0x6163, 0x6567, 0x206d, 0x0920, 0x2000,
+0x4d20, 0x646f, 0x6d65, 0x2020, 0x000f, 0x2020, 0x6f43, 0x756d, 0x696e,
+0x6163, 0xe3e7, 0x206f, 0x4820, 0x4a00, 0x0005, 0x004f, 0x5000, 0x0000,
+0x0000, 0x0053, 0x0000, 0x5400, 0x0000, 0x0c55, 0x5600, 0x5702, 0x0000,
+0xff58, 0x5bff, 0x0001, 0x005c, 0xff00, 
+    0
+}
+
+//----------------------------------------------------------------------------//
+
+ModemDlgTab1 DIALOG 12, 23, 165, 162
+STYLE WS_CHILD // | DS_SETFONT | 0x04L
+FONT 8, "MS Sans Serif"
+{
+ CONTROL " Participante ", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 2, 5, 160, 48
+ CONTROL "&Número", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 9, 18, 26, 10
+ CONTROL "", IDC_ID, "EDIT", ES_LEFT | ES_AUTOHSCROLL | ES_UPPERCASE | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 38, 16, 81, 12
+ CONTROL "&Senha", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 9, 34, 23, 10
+ CONTROL "", IDC_PASSWORD, "EDIT", ES_LEFT | ES_AUTOHSCROLL | ES_UPPERCASE | ES_PASSWORD | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 38, 32, 81, 12
+ CONTROL " Telefone ", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 2, 56, 160, 33
+ CONTROL "Nú&mero", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE, 9, 69, 27, 10
+ CONTROL "", IDC_PHONE, "EDIT", ES_LEFT | ES_AUTOHSCROLL | ES_UPPERCASE | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 38, 67, 81, 12
+ CONTROL "OK", IDOK, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 27, 144, 48, 16
+ CONTROL "Cancelar", IDCANCEL, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 89, 144, 48, 16
+}
+
+//----------------------------------------------------------------------------//
+
+ModemDlgTab2 DIALOG 12, 23, 165, 162
+STYLE WS_CHILD // | DS_SETFONT | 0x04L
+FONT 8, "MS Sans Serif"
+{
+ CONTROL " Linha ", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 2, 5, 160, 46
+ CONTROL "P&refixo", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 9, 18, 24, 10
+ CONTROL "", IDC_LINEPREFIX, "EDIT", ES_LEFT | ES_UPPERCASE | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 40, 16, 13, 12
+ CONTROL "&Usar prefixo", IDC_USELINEPREFIX, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 9, 33, 60, 12
+ CONTROL "&Pulso", IDC_PULSE, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 113, 16, 30, 12
+ CONTROL "&Tom", IDC_TONE, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 113, 27, 30, 12
+ CONTROL " Tempo para o sinal ", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 2, 54, 160, 33
+ CONTROL "&Em Seg.", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 9, 69, 29, 10
+ CONTROL "", IDC_LINESIGNAL, "EDIT", ES_LEFT | ES_UPPERCASE | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 40, 66, 13, 12
+ CONTROL "OK", IDOK, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 27, 144, 48, 16
+ CONTROL "Cancelar", IDCANCEL, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 89, 144, 48, 16
+}
+
+//----------------------------------------------------------------------------//
+
+ModemDlgTab3 DIALOG 12, 23, 165, 162
+STYLE WS_CHILD // | DS_SETFONT | 0x04L
+FONT 8, "MS Sans Serif"
+{
+ CONTROL " Inicialização ", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 2, 5, 160, 33
+ CONTROL "&String", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 9, 18, 21, 10
+ CONTROL "", IDC_INITSTRING, "EDIT", ES_LEFT | ES_AUTOHSCROLL | ES_UPPERCASE | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 34, 16, 81, 12
+ CONTROL " TimeOut - limite de tempo até a conexão ", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 2, 41, 160, 33
+ CONTROL "&Em Seg.", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 9, 55, 28, 10
+ CONTROL "", IDC_TIMEOUTTIME, "EDIT", ES_LEFT | ES_AUTOHSCROLL | ES_UPPERCASE | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 41, 53, 13, 12
+ CONTROL "OK", IDOK, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 27, 144, 48, 16
+ CONTROL "Cancelar", IDCANCEL, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 89, 144, 48, 16
+}
+
+//----------------------------------------------------------------------------//
+
+ModemDlgTab4 DIALOG 12, 23, 165, 162
+STYLE WS_CHILD // | DS_SETFONT | 0x04L
+FONT 8, "MS Sans Serif"
+{
+ CONTROL " &Transmissão ", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE | WS_GROUP, 2, 5, 160, 37
+ CONTROL "300", IDC_BAUD300, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 9, 18, 34, 10
+ CONTROL "600", IDC_BAUD600, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 43, 18, 34, 10
+ CONTROL "1200", IDC_BAUD1200, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 77, 18, 34, 10
+ CONTROL "2400", IDC_BAUD2400, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 111, 18, 34, 10
+ CONTROL "4800", IDC_BAUD4800, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 9, 28, 34, 10
+ CONTROL "9600", IDC_BAUD9600, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 43, 28, 34, 10
+ CONTROL "19200", IDC_BAUD19200, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 77, 28, 34, 10
+ CONTROL " &Bits de dados ", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE | WS_GROUP, 2, 43, 82, 27
+ CONTROL "5", IDC_DATA5, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 9, 56, 17, 10
+ CONTROL "6", IDC_DATA6, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 28, 56, 17, 10
+ CONTROL "7", IDC_DATA7, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 47, 56, 17, 10
+ CONTROL "8", IDC_DATA8, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 66, 56, 17, 10
+ CONTROL " B&its de parada ", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE | WS_GROUP, 89, 43, 73, 27
+ CONTROL "1", IDC_STOP1, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 96, 56, 18, 10
+ CONTROL "1,5", IDC_STOP15, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 116, 56, 25, 10
+ CONTROL "2", IDC_STOP2, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 143, 56, 16, 10
+ CONTROL " &Paridade ", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE | WS_GROUP, 2, 71, 52, 67
+ CONTROL "Nenhuma", IDC_PARITYNONE, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 6, 84, 45, 10
+ CONTROL "Ímpar", IDC_PARITYODD, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 6, 94, 45, 10
+ CONTROL "Par", IDC_PARITYEVEN, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 6, 104, 45, 10
+ CONTROL "Marca", IDC_PARITYMARK, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 6, 114, 45, 10
+ CONTROL "Espaço", IDC_PARITYSPACE, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 6, 124, 45, 10
+ CONTROL " &Fluxo ", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE | WS_GROUP, 59, 71, 55, 67
+ CONTROL "Hardware", IDC_FLOWHARDWARE, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 66, 84, 45, 10
+ CONTROL "Xon / Xoff", IDC_FLOWXONXOFF, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 66, 94, 45, 10
+ CONTROL "Nenhum", IDC_FLOWNONE, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 66, 104, 45, 10
+ CONTROL " P&orta ", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE | WS_GROUP, 119, 71, 43, 67
+ CONTROL "COM1:", IDC_COM1, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 122, 84, 33, 10
+ CONTROL "COM2:", IDC_COM2, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 122, 94, 33, 10
+ CONTROL "COM3:", IDC_COM3, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 122, 104, 33, 10
+ CONTROL "COM4:", IDC_COM4, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 122, 114, 33, 10
+ CONTROL "n.s", IDC_COMNONE, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 122, 124, 33, 10
+ CONTROL "OK", IDOK, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 27, 144, 48, 16
+ CONTROL "Cancelar", IDCANCEL, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 89, 144, 48, 16
+}
+
+//----------------------------------------------------------------------------//
+
+DialDlg DIALOG 0, 0, 197, 73
+STYLE DS_MODALFRAME | WS_OVERLAPPED | WS_VISIBLE | WS_CAPTION | WS_SYSMENU // | DS_SETFONT | 0x04L
+CAPTION "Conectar - Bolsa"
+FONT 8, "MS Sans Serif"
+{
+ CONTROL "", IDC_DIALSTATUS, "LISTBOX", LBS_NOTIFY | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_CHILD | WS_VISIBLE | WS_BORDER, 8, 18, 124, 32
+ CONTROL "Status", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 8, 6, 23, 9
+ CONTROL "Cancelar", IDCANCEL, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 141, 8, 48, 16
+}
+
+//----------------------------------------------------------------------------//
+
+QueryStockMAIN DIALOG 0, 0, 160, 172
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU // | DS_SETFONT | 0x04L
+FONT 8, "MS Sans Serif"
+{
+ CONTROL " Títulos ", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 3, 3, 154, 113
+ CONTROL "&No. de Títulos", IDC_NO_TITULOS_TEXT, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 9, 15, 25, 16
+ CONTROL "", IDC_NO_TITULOS, "EDIT", ES_LEFT | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 37, 17, 17, 12
+ CONTROL "To&dos os títulos", IDC_TODOS_TITULOS, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 77, 16, 67, 12
+ CONTROL "Mercado", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 9, 35, 31, 8
+ CONTROL "", -1, "static", SS_BLACKFRAME | WS_CHILD | WS_VISIBLE, 39, 39, 115, 1
+ CONTROL "À &Vista", IDC_MERCADO_AVISTA, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 16, 47, 57, 12
+ CONTROL "Vista &Fração", IDC_MERCADO_FRACAO, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_TABSTOP, 16, 58, 77, 12
+ CONTROL "&Termo", IDC_MERCADO_TERMO, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 16, 69, 77, 12
+ CONTROL "Opções de &Compra", IDC_MERCADO_OPCOES_COMPRA, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 16, 80, 77, 12
+ CONTROL "&Opções de Venda", IDC_MERCADO_OPCOES_VENDA, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_TABSTOP, 16, 91, 77, 12
+ CONTROL "Fu&turo", IDC_MERCADO_FUTURO, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 16, 102, 77, 12
+ CONTROL "Todos os &Mercados", IDC_MERCADO_TODOS, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 77, 47, 77, 12
+ CONTROL " Títulos Por Ordem Alfabética de Empresa ", IDC_ORDEM_ALFABETICA, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE | WS_DISABLED, 3, 120, 154, 29
+ CONTROL "Letra &Inicial", IDC_LETRA_INICIAL_TEXT, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_GROUP, 16, 135, 40, 8
+ CONTROL "", IDC_LETRA_INICIAL, "EDIT", ES_LEFT | ES_UPPERCASE | WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_BORDER | WS_TABSTOP, 58, 133, 10, 12
+ CONTROL "&Letra Final", IDC_LETRA_FINAL_TEXT, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_GROUP, 83, 135, 37, 8
+ CONTROL "", IDC_LETRA_FINAL, "EDIT", ES_LEFT | ES_UPPERCASE | WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_BORDER | WS_TABSTOP, 122, 133, 10, 12
+ CONTROL "OK", IDOK, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 25, 152, 48, 16
+ CONTROL "Cancelar", IDCANCEL, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 87, 152, 48, 16
+}
+
+//----------------------------------------------------------------------------//
+
+QueryStock DIALOG 0, 0, 192, 246
+STYLE DS_MODALFRAME | WS_OVERLAPPED | WS_VISIBLE | WS_CAPTION | WS_SYSMENU // | DS_SETFONT | 0x04L
+FONT 8, "MS Sans Serif"
+{
+ CONTROL "", IDC_MERCADO_AVISTA, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 3, 9, 17, 18
+ CONTROL "", IDC_MERCADO_TERMO, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 3, 30, 17, 18
+ CONTROL "", IDC_MERCADO_OPCOES, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 3, 51, 17, 18
+ CONTROL "", IDC_MERCADO_FUTURO, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 3, 72, 17, 18
+ CONTROL " Título ", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 24, 5, 80, 58
+ CONTROL "&Cód. Cia.", IDC_CODCIA_TEXT, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 30, 15, 32, 11
+ CONTROL "", IDC_CODCIA, "EDIT", ES_LEFT | ES_AUTOHSCROLL | ES_UPPERCASE | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 64, 15, 25, 12
+ CONTROL "T&ipo", IDC_TIPO_TEXT, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 30, 30, 32, 11
+ CONTROL "", IDC_TIPO, "COMBOBOX", CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | CBS_SORT | WS_CHILD | WS_VISIBLE | WS_VSCROLL | WS_TABSTOP, 64, 30, 25, 70
+ CONTROL "Co&rretora", IDC_CORRETORA_TEXT, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_GROUP, 30, 49, 30, 11
+ CONTROL "", IDC_CORRETORA, "EDIT", ES_LEFT | ES_UPPERCASE | WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_BORDER | WS_TABSTOP, 64, 47, 25, 12
+ CONTROL " Direitos ", IDC_DIREITOS_GROUP, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 109, 5, 80, 58
+ CONTROL "&Dividendo", IDC_DIVIDENDO_TEXT, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 116, 15, 36, 10
+ CONTROL "", IDC_DIVIDENDO, "COMBOBOX", CBS_DROPDOWNLIST | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 159, 15, 22, 70
+ CONTROL "&Bonificação", IDC_BONIFICACAO_TEXT, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 116, 31, 40, 10
+ CONTROL "", IDC_BONIFICACAO, "COMBOBOX", CBS_DROPDOWNLIST | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 159, 31, 22, 70
+ CONTROL "&Subscrição", IDC_SUBSCRICAO_TEXT, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 116, 47, 42, 10
+ CONTROL "", IDC_SUBSCRICAO, "COMBOBOX", CBS_DROPDOWNLIST | WS_CHILD | WS_VISIBLE | WS_VSCROLL | WS_TABSTOP, 159, 47, 22, 70
+ CONTROL " Data de Bolsa ", IDC_DT_BOLSA_GROUP, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE | WS_DISABLED, 24, 65, 165, 27
+ CONTROL "Inicia&l", IDC_DT_BOLSA_INI_TEXT, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_GROUP, 31, 77, 21, 8
+ CONTROL "", IDC_MHDATEINPUT1, "EDIT", ES_LEFT | ES_UPPERCASE | WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_BORDER | WS_TABSTOP, 54, 75, 39, 12
+ CONTROL "&Final", IDC_DT_BOLSA_FIM_TEXT, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_GROUP, 114, 77, 16, 8
+ CONTROL "", IDC_MHDATEINPUT2, "EDIT", ES_LEFT | ES_UPPERCASE | WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_BORDER | WS_TABSTOP, 133, 75, 39, 12
+ CONTROL " &Vencimento ", IDC_GBX_AVISTA, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 24, 94, 165, 28
+ CONTROL "Vista", IDC_AVISTA, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 31, 105, 30, 12
+ CONTROL "Fração", IDC_AVISTA_FRACAO, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 64, 105, 36, 12
+ CONTROL " Mercado a &Termo ", IDC_GBX_TERMO, "BUTTON", BS_GROUPBOX | WS_CHILD | NOT WS_VISIBLE, 24, 94, 165, 39
+ CONTROL "30", IDC_TERMO_30, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | NOT WS_VISIBLE | WS_GROUP | WS_TABSTOP, 31, 105, 20, 12
+ CONTROL "60", IDC_TERMO_60, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | NOT WS_VISIBLE | WS_TABSTOP, 62, 105, 20, 12
+ CONTROL "90", IDC_TERMO_90, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | NOT WS_VISIBLE | WS_TABSTOP, 93, 105, 20, 12
+ CONTROL "120", IDC_TERMO_120, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | NOT WS_VISIBLE | WS_TABSTOP, 31, 116, 27, 12
+ CONTROL "150", IDC_TERMO_150, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | NOT WS_VISIBLE | WS_TABSTOP, 62, 116, 27, 12
+ CONTROL "180", IDC_TERMO_180, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | NOT WS_VISIBLE | WS_TABSTOP, 93, 116, 27, 12
+ CONTROL " Mercado de Opções ", IDC_GBX_OPCOES, "BUTTON", BS_GROUPBOX | WS_CHILD | NOT WS_VISIBLE, 24, 94, 165, 60
+ CONTROL "&Operação", IDC_TEXT_OPERACAO, "STATIC", SS_LEFT | WS_CHILD | NOT WS_VISIBLE | WS_GROUP, 31, 106, 51, 10
+ CONTROL "", IDC_COMPRA_VENDA, "COMBOBOX", CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | WS_CHILD | NOT WS_VISIBLE | WS_TABSTOP, 83, 106, 55, 40
+ CONTROL "Mês de ve&nc.", IDC_TEXT_MESVENC, "STATIC", SS_LEFT | WS_CHILD | NOT WS_VISIBLE | WS_GROUP, 31, 122, 51, 10
+ CONTROL "", IDC_MESVENC, "COMBOBOX", CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | WS_CHILD | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP, 83, 122, 65, 70
+ CONTROL "Séri&e do título", IDC_TEXT_SERIE, "STATIC", SS_LEFT | WS_CHILD | NOT WS_VISIBLE | WS_GROUP, 31, 138, 51, 10
+ CONTROL "", IDC_SERIE, "COMBOBOX", CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | WS_CHILD | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP, 83, 138, 23, 70
+ CONTROL " Mercado Futuro c/ retenção ", IDC_GBX_FUTURO, "BUTTON", BS_GROUPBOX | WS_CHILD | NOT WS_VISIBLE, 24, 94, 165, 33
+ CONTROL "Mês de venc&.", IDC_TEXT_FUTURO, "STATIC", SS_LEFT | WS_CHILD | NOT WS_VISIBLE | WS_GROUP, 31, 106, 51, 10
+ CONTROL "", IDC_FUTURO_MESVENC, "COMBOBOX", CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | WS_CHILD | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP, 82, 106, 70, 70
+ CONTROL " Selecionado ", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 24, 156, 165, 65
+ CONTROL "", IDC_STOCKLIST, "LISTBOX", LBS_STANDARD | LBS_NOINTEGRALHEIGHT | LBS_DISABLENOSCROLL | WS_CHILD | WS_VISIBLE | WS_HSCROLL | WS_TABSTOP, 33, 166, 95, 49
+ CONTROL "&Adicionar", IDC_ADD, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 134, 164, 48, 16
+ CONTROL "&Remover", IDC_REMOVE, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 134, 182, 48, 16
+ CONTROL "&Limpar", IDC_CLEAR, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 134, 201, 48, 16
+ CONTROL "OK", IDOK, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 41, 226, 48, 16
+ CONTROL "Cancelar", IDCANCEL, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 103, 226, 48, 16
+}
+
+//----------------------------------------------------------------------------//
+
+QryStkTEMPLATE DIALOG 0, 0, 179, 203
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU // | DS_SETFONT | 0x04L
+FONT 8, "MS Sans Serif"
+{
+ CONTROL " &Vencimento ", IDC_GBX_AVISTA, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 7, 6, 165, 28
+ CONTROL "Vista", IDC_AVISTA, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 14, 17, 30, 12
+ CONTROL "Fração", IDC_AVISTA_FRACAO, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 47, 17, 36, 12
+ CONTROL " Mercado a &Termo ", IDC_GBX_TERMO, "BUTTON", BS_GROUPBOX | WS_CHILD | NOT WS_VISIBLE, 7, 41, 165, 39
+ CONTROL "30", IDC_TERMO_30, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | NOT WS_VISIBLE | WS_GROUP | WS_TABSTOP, 14, 52, 20, 12
+ CONTROL "60", IDC_TERMO_60, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | NOT WS_VISIBLE | WS_TABSTOP, 45, 52, 20, 12
+ CONTROL "90", IDC_TERMO_90, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | NOT WS_VISIBLE | WS_TABSTOP, 76, 52, 20, 12
+ CONTROL "120", IDC_TERMO_120, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | NOT WS_VISIBLE | WS_TABSTOP, 14, 63, 27, 12
+ CONTROL "150", IDC_TERMO_150, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | NOT WS_VISIBLE | WS_TABSTOP, 45, 63, 27, 12
+ CONTROL "180", IDC_TERMO_180, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | NOT WS_VISIBLE | WS_TABSTOP, 76, 63, 27, 12
+ CONTROL " Mercado de Opções ", IDC_GBX_OPCOES, "BUTTON", BS_GROUPBOX | WS_CHILD | NOT WS_VISIBLE, 7, 88, 165, 65
+ CONTROL "&Operação", IDC_TEXT_OPERACAO, "STATIC", SS_LEFT | WS_CHILD | NOT WS_VISIBLE | WS_GROUP, 14, 100, 51, 10
+ CONTROL "", IDC_COMPRA_VENDA, "COMBOBOX", CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | WS_CHILD | NOT WS_VISIBLE | WS_TABSTOP, 66, 100, 50, 40
+ CONTROL "Mês de ve&nc.", IDC_TEXT_MESVENC, "STATIC", SS_LEFT | WS_CHILD | NOT WS_VISIBLE | WS_GROUP, 14, 116, 51, 10
+ CONTROL "", IDC_MESVENC, "COMBOBOX", CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | WS_CHILD | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP, 66, 116, 60, 70
+ CONTROL "Séri&e do título", IDC_TEXT_SERIE, "STATIC", SS_LEFT | WS_CHILD | NOT WS_VISIBLE | WS_GROUP, 14, 132, 51, 10
+ CONTROL "", IDC_SERIE, "COMBOBOX", CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | WS_CHILD | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP, 66, 132, 18, 70
+ CONTROL " Mercado Futuro c/ retenção ", IDC_GBX_FUTURO, "BUTTON", BS_GROUPBOX | WS_CHILD | NOT WS_VISIBLE, 7, 162, 165, 33
+ CONTROL "Mês de venc&.", IDC_TEXT_FUTURO, "STATIC", SS_LEFT | WS_CHILD | NOT WS_VISIBLE | WS_GROUP, 14, 174, 51, 10
+ CONTROL "", IDC_FUTURO_MESVENC, "COMBOBOX", CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | WS_CHILD | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP, 65, 174, 60, 70
+}
+
+//----------------------------------------------------------------------------//
+
+QueryStockDays DIALOG 0, 0, 142, 71
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU // | DS_SETFONT | 0x04L
+CAPTION "4 Últimos Pregões"
+FONT 8, "MS Sans Serif"
+{
+ CONTROL " Dias dos Pregões ", IDC_GROUPBOX1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 5, 5, 72, 60
+ CONTROL "Pregão de D-&1", IDC_RADIOBUTTON1, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 11, 16, 60, 12
+ CONTROL "Pregão de D-&2", IDC_RADIOBUTTON2, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 11, 27, 60, 12
+ CONTROL "Pregão de D-&3", IDC_RADIOBUTTON3, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 11, 38, 60, 12
+ CONTROL "Pregão de D-&4", IDC_RADIOBUTTON4, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 11, 49, 60, 12
+ CONTROL "OK", IDOK, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 86, 8, 48, 16
+ CONTROL "Cancelar", IDCANCEL, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 86, 32, 48, 16
+}
+
+//----------------------------------------------------------------------------//
+
+QueryStockCombine DIALOG 0, 0, 179, 99
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU // | DS_SETFONT | 0x04L
+CAPTION "Relação de Negócios"
+FONT 8, "MS Sans Serif"
+{
+ CONTROL " Selecionar Combinação ", IDC_GROUPBOX2, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 5, 4, 169, 74
+ CONTROL "&1 - Código Cia., Tipo, Vencimento e Corretora", IDC_RADIOBUTTON5, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP, 11, 14, 160, 12
+ CONTROL "&2 - Código Cia., Tipo e Vencimento", IDC_RADIOBUTTON6, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 11, 26, 160, 12
+ CONTROL "&3 - Código Cia., Tipo e Corretora", IDC_RADIOBUTTON7, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 11, 38, 160, 12
+ CONTROL "&4 - Código Cia., Tipo", IDC_RADIOBUTTON8, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 11, 50, 160, 12
+ CONTROL "&5 - Corretora", IDC_RADIOBUTTON9, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 11, 62, 160, 12
+ CONTROL "OK", IDOK, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 35, 81, 48, 16
+ CONTROL "Cancelar", IDCANCEL, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 97, 81, 48, 16
+}
+
+//----------------------------------------------------------------------------//
+
+AboutDlg DIALOG 0, 0, 218, 150
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Sobre o Sistema"
+FONT 8, "MS Sans Serif"
+{
+ CONTROL "", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 53, 3, 159, 122
+ CONTROL "WinBolsa \xAE", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 57, 29, 115, 8
+ CONTROL "Versão 1.0 - Completa", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 57, 37, 115, 8
+ CONTROL "Copyright © 1994, 1995, 1996", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 57, 45, 115, 8
+ CONTROL "Eduardo Bezerra", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 57, 53, 115, 8
+ CONTROL "Todos os direitos reservados", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 57, 61, 115, 8
+ CONTROL "Desenvolvimento", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 57, 72, 115, 8
+ CONTROL "EDUARDO BEZERRA", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 57, 80, 115, 8
+ CONTROL "Programação Visual", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 57, 88, 115, 8
+ CONTROL "VALÉRIA ALBUQUERQUE MELLO", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 57, 96, 115, 8
+ CONTROL "Suporte Técnico", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 57, 104, 115, 8
+ CONTROL "JORGE MENDONÇA LIMA", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 57, 112, 115, 8
+ CONTROL "OK", IDOK, "BUTTON", BS_OWNERDRAW | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 89, 130, 48, 16
+ CONTROL "Registrado para:", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 57, 10, 115, 8
+ CONTROL "EDUARDO MAGALHÃES", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 57, 18, 151, 8
+}
+
+//----------------------------------------------------------------------------//
+
+1 VERSIONINFO LOADONCALL MOVEABLE
+FILEVERSION 1, 0, 0, 0
+PRODUCTVERSION 1, 0, 0, 0
+FILEFLAGSMASK VS_FF_DEBUG | VS_FF_PRERELEASE | VS_FF_PATCHED | VS_FF_PRIVATEBUILD | VS_FF_SPECIALBUILD
+FILEFLAGS VS_FFI_FILEFLAGSMASK
+FILEOS VOS__WINDOWS16
+FILETYPE VFT_APP
+BEGIN
+	 BLOCK "StringFileInfo"
+	 BEGIN
+		  BLOCK "040904E4" // Language type = U.S. English (0x0409) and Character Set = Windows, Multilingual(0x04e4)
+		  BEGIN            // Matches VarFileInfo Translation hex value.
+				VALUE "CompanyName", "R.B. Informática Ltda M.e\000"
+				VALUE "FileDescription", "winbolsa\000"
+				VALUE "FileVersion", "1.0.0\000"
+				VALUE "InternalName", "winbolsa\000"
+				VALUE "LegalCopyright", "Copyright© Eduardo Bezerra 1994/1995\000"
+				VALUE "LegalTrademarks", "\000"
+				VALUE "OriginalFilename", "winbolsa.exe\000"
+				VALUE "ProductName", "WinBolsa For Windows\000"
+				VALUE "ProductVersion", "1.0.0\000"
+				VALUE "SpecialBuild", "build 26/02/96\000"
+				VALUE "PrivateBuild", "\000"
+		  END
+	 END
+	 BLOCK "VarFileInfo"
+    BEGIN                // U.S. English(0x0409) & Windows Multilingual(0x04e4) 1252
+        VALUE "Translation", 0x0409, 0x04e4
+    END
+END
+
+//----------------------------------------------------------------------------//
+
+/*---------------------------------------------------------------\
+|                                                                |
+|   ID_Baud300     = 0   ID_Data5        = 7    ID_Stop1   = 11  |
+|   ID_Baud600     = 1   ID_Data6        = 8    ID_Stop15  = 12  |
+|   ID_Baud1200    = 2   ID_Data7        = 9    ID_Stop2   = 13  |
+|   ID_Baud2400    = 3   ID_Data8        = 10                    |
+|   ID_Baud4800    = 4                                           |
+|   ID_Baud9600    = 5                                           |
+|   ID_Baud19200   = 6                                           |
+|                                                                |
+|   ID_ParityNone  = 14  ID_FlowHardware = 19   ID_Com1    = 22  |
+|   ID_ParityOdd   = 15  ID_FlowXonXoff  = 20   ID_Com2    = 23  |
+|   ID_ParityEven  = 16  ID_FlowNone     = 21   ID_Com3    = 24  |
+|   ID_ParityMark  = 17                         ID_Com4    = 25  |
+|   ID_ParitySpace = 18                         ID_ComNone = 26  |
+|                                                                |
+\---------------------------------------------------------------*/
+

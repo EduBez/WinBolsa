@@ -1,0 +1,9 @@
+[OPTIONS]
+TITLE=WinBolsa Ajuda
+CONTENTS=INDICE
+
+[FILES]
+winbolsa.rtf
+
+[CONFIG]
+BrowseButtons()

@@ -1,0 +1,511 @@
+//---------------------------------------------//
+//                                             //
+//    WINBOLSA. RH                             //
+//                                             //
+//    Copyright (C) 1994 by Eduardo Bezerra    //
+//                                             //
+//---------------------------------------------//
+
+
+#ifndef  _WINBOLSA_RH
+	#define _WINBOLSA_RH
+
+#include <owl\docview.rh>
+
+
+/*-----------------------------------*
+ *       Encrypting Identifiers      *
+ *-----------------------------------*/
+
+#define DECODE_ID  "12345678"
+#define ENCODE_ID  "35728146"
+
+#define DECODE_PW  "1234567"
+#define ENCODE_PW  "5723146"
+
+#define ENCODECHAR 'A'
+
+//----------------------------------------------------------------------------//
+
+/*-----------------------------------*
+ *    User Defined Event Handlers    *
+ *-----------------------------------*/
+
+#define WM_INITIALIZECOMM			WM_USER + 1001	// TDrvdDecoratedFrame
+#define WM_REQUEST					WM_USER + 1002	// TDrvdDecoratedFrame
+#define WM_USER_MESSAGE				WM_USER + 1003	// TNoteBookFrame
+#define WM_DIAL						WM_USER + 1004	// TDialDialog
+#define VN_VIEWTABLE_OPENED		WM_USER + 1005	// TTableView
+#define VN_VIEWTABLE_SAVED			WM_USER + 1006	//     "
+#define VN_VIEWSETTYPE				WM_USER + 1007 //     "
+#define VN_VIEWUPDATE				WM_USER + 1008	//     "
+
+//----------------------------------------------------------------------------//
+
+/*-----------------------------------*
+ *  Transfer Buffer Size Delimiters  *
+ *-----------------------------------*/
+
+#define MAXLEN_ID						9
+#define MAXLEN_PASSW					8
+#define MAXLEN_PHONE					21
+#define MAXLEN_PREFIX				3
+#define MAXLEN_SIGNAL				3
+#define MAXLEN_MODEM					27
+#define MAXLEN_INITSTRING			29
+#define MAXLEN_TIMEOUTTIME			3
+#define MAXLEN_TRADEDTITLES		4
+
+//----------------------------------------------------------------------------//
+
+/*-----------------------------------*
+ *       Other Size Delimiters       *
+ *-----------------------------------*/
+
+#define MAXLEN_LINE              80
+
+//----------------------------------------------------------------------------//
+
+/*-----------------------------------*
+ *     Dialog Control Identifiers    *
+ *-----------------------------------*/
+
+
+// 'ModemDlgTab1' Dialog
+// --------------------------------
+#define IDC_ID                   101
+#define IDC_PASSWORD             102
+#define IDC_PHONE                103
+
+// 'ModemDlgTab2' Dialog
+// --------------------------------
+#define IDC_LINEPREFIX           101
+#define IDC_USELINEPREFIX        102
+#define IDC_TONE                 103
+#define IDC_PULSE                104
+#define IDC_LINESIGNAL           105
+
+// 'ModemDlgTab3' Dialog
+// --------------------------------
+#define IDC_INITSTRING           101
+#define IDC_TIMEOUTTIME          102
+
+// 'ModemDlgTab4' Dialog
+// --------------------------------
+#define IDC_BAUD300              101
+#define IDC_BAUD600              102
+#define IDC_BAUD1200             103
+#define IDC_BAUD2400             104
+#define IDC_BAUD4800             105
+#define IDC_BAUD9600             106
+#define IDC_BAUD19200            107
+
+#define IDC_DATA5                108
+#define IDC_DATA6                109
+#define IDC_DATA7                110
+#define IDC_DATA8                111
+
+#define IDC_STOP1                112
+#define IDC_STOP15               113
+#define IDC_STOP2                114
+
+#define IDC_PARITYODD            115
+#define IDC_PARITYEVEN           116
+#define IDC_PARITYMARK           117
+#define IDC_PARITYSPACE          118
+#define IDC_PARITYNONE           119
+
+#define IDC_FLOWNONE             120
+#define IDC_FLOWHARDWARE         121
+#define IDC_FLOWXONXOFF          122
+
+#define IDC_COMNONE              123
+#define IDC_COM1                 124
+#define IDC_COM2                 125
+#define IDC_COM3                 126
+#define IDC_COM4                 127
+
+// 'DialDlg' Dialog
+// --------------------------------
+#define IDC_DIALSTATUS           101
+#define IDC_LEDGAUGE             102
+#define IDC_MhTab                103
+
+// 'QueryStock' Dialog
+// --------------------------------
+#define MAXLEN_CODCIA				5
+#define MAXLEN_SETOR             3
+#define MAXLEN_TIPO					3
+#define MAXLEN_CORRETORA         4
+#define MAXLEN_DBS					2
+#define MAXLEN_COMPRA_VENDA		7
+#define MAXLEN_MES					10
+#define MAXLEN_SERIE					2
+#define MAXSTOCKLISTSIZE			10
+#define MAXLEN_DTBOLSA           9
+
+//---------------------------------
+
+#define IDC_CODCIA_TEXT           98
+#define IDC_CODCIA               101
+
+#define IDC_TIPO_TEXT            102
+#define IDC_TIPO                 103
+
+#define IDC_CORRETORA_TEXT        99
+#define IDC_CORRETORA            100
+
+#define IDC_DIVIDENDO            104
+#define IDC_BONIFICACAO          105
+#define IDC_SUBSCRICAO           106
+
+#define IDC_MHDATEINPUT1         107
+#define IDC_MHDATEINPUT2         108
+
+#define IDC_GBX_AVISTA           109
+#define IDC_AVISTA               110
+#define IDC_AVISTA_FRACAO			111
+
+#define IDC_GBX_TERMO				112
+#define IDC_TERMO_30					113
+#define IDC_TERMO_60					114
+#define IDC_TERMO_90				   115
+#define IDC_TERMO_120				116
+#define IDC_TERMO_150				117
+#define IDC_TERMO_180				118
+
+#define IDC_GBX_OPCOES				119
+#define IDC_TEXT_OPERACAO        120
+#define IDC_COMPRA_VENDA			121
+#define IDC_TEXT_MESVENC         122
+#define IDC_MESVENC					123
+#define IDC_TEXT_SERIE           124
+#define IDC_SERIE						125
+
+#define IDC_GBX_FUTURO				126
+#define IDC_TEXT_FUTURO          127
+#define IDC_FUTURO_MESVENC			128
+
+#define IDC_STOCKLIST            129
+#define IDC_ADD                  130
+#define IDC_REMOVE               131
+#define IDC_CLEAR                132
+
+#define IDC_DIREITOS_GROUP       133
+#define IDC_DIVIDENDO_TEXT       134
+#define IDC_BONIFICACAO_TEXT     135
+#define IDC_SUBSCRICAO_TEXT      136
+
+#define IDC_DT_BOLSA_GROUP       137
+#define IDC_DT_BOLSA_INI_TEXT    138
+#define IDC_DT_BOLSA_FIM_TEXT    139
+
+// 'QueryStockMain'
+// ----------------
+#define IDC_NO_TITULOS_TEXT         500
+#define IDC_NO_TITULOS					501
+#define IDC_TODOS_TITULOS				502
+#define IDC_MERCADO_AVISTA			   503
+#define IDC_MERCADO_FRACAO          504
+#define IDC_MERCADO_TERMO			   505
+#define IDC_MERCADO_OPCOES			   506
+#define IDC_MERCADO_OPCOES_COMPRA	507
+#define IDC_MERCADO_OPCOES_VENDA		508
+#define IDC_MERCADO_FUTURO				509
+#define IDC_MERCADO_TODOS			   510
+#define IDC_ORDEM_ALFABETICA        511
+#define IDC_LETRA_INICIAL_TEXT      512
+#define IDC_LETRA_INICIAL           513
+#define IDC_LETRA_FINAL_TEXT        514
+#define IDC_LETRA_FINAL             515
+
+// 'QueryStockDays' Dialog
+// --------------------------------
+#define IDC_GROUPBOX1				 -1
+#define IDC_RADIOBUTTON          100
+#define IDC_RADIOBUTTON1			101
+#define IDC_RADIOBUTTON2			102
+#define IDC_RADIOBUTTON3			103
+#define IDC_RADIOBUTTON4			104
+
+// 'QueryStockCombine' Dialog
+// --------------------------------
+#define IDC_GROUPBOX2	          -1
+#define IDC_RADIOBUTTON5	      105
+#define IDC_RADIOBUTTON6	      106
+#define IDC_RADIOBUTTON7	      107
+#define IDC_RADIOBUTTON8	      108
+#define IDC_RADIOBUTTON9	      109
+
+//----------------------------------------------------------------------------//
+
+/*-----------------------------------*
+ *     'FrameMenu' Menu Commands     *
+ *-----------------------------------*/
+
+#define CM_EDIT_COPY             150
+#define CM_TERMINAL              151
+#define CM_STOCKDIAL             152
+#define CM_STOCKHANGUP           153
+#define CM_CONFIG                154
+#define CM_RUNQUERY              155
+
+#define CM_BEGIN                 156
+#define CM_FASTBACKWARD          157
+#define CM_BACKWARD              158
+#define CM_FORWARD               159
+#define CM_FASTFORWARD           160
+#define CM_END                   161
+
+#define CM_CLOSEMDICHILDREN      162
+#define CM_HELPINDEX             163
+#define CM_HELPHELP              164
+#define CM_ABOUT                 165
+
+#define CM_NULL                  24500
+
+#define CM_GARQ_BOR_1            CM_NULL + 1
+#define CM_GARQ_BOR_2            CM_NULL + 2
+#define CM_GARQ_BOR_3            CM_NULL + 3
+#define CM_GARQ_BOR_4            CM_NULL + 4
+#define CM_GARQ_BOR_5            CM_NULL + 5
+
+#define CM_GARQ_BR               CM_NULL + 6
+#define CM_GARQ_BRI              CM_NULL + 7
+
+#define CM_GARQ_BFR_1            CM_NULL + 8
+#define CM_GARQ_BFR_2            CM_NULL + 9
+#define CM_GARQ_BFR_3            CM_NULL + 10
+
+#define CM_GARQ_BS               CM_NULL + 11
+#define CM_GARQ_BSI              CM_NULL + 12
+
+#define CM_GARQ_BAS_1            CM_NULL + 13
+#define CM_GARQ_BAS_2            CM_NULL + 14
+
+#define CM_GARQ_BRJDATA          CM_NULL + 15
+#define CM_GARQ_BSPDATA          CM_NULL + 16
+
+#define CM_GARQ_BIG              CM_NULL + 17
+#define CM_GARQ_NEG              CM_NULL + 18
+
+#define CM_GARQ_HIS              CM_NULL + 19
+#define CM_GARQ_IND              CM_NULL + 20
+
+#define CM_GARQ_BRx              110
+#define CM_GARQ_BRA              111
+#define CM_GARQ_BRG              112
+
+#define CM_GARQ_BSx              113
+#define CM_GARQ_BSG              114
+
+#define CM_GARQ_BIG_NEGOCIADOS	130
+#define CM_GARQ_BIG_ESPECIFICOS	131
+
+#define CM_BOLETIM_FECHAMENTO_RIO_TODO_MESTRE         24450
+#define CM_BOLETIM_FECHAMENTO_RIO_TODO_INDICE         24449
+#define CM_BOLETIM_FECHAMENTO_RIO_TODO_TOTAIS_SENN    24448
+#define CM_BOLETIM_FECHAMENTO_RIO_TODO_INDICES_SENN   24447
+#define CM_BOLETIM_FECHAMENTO_RIO_TODO_COTACOES       24446
+
+#define CM_BOLETIM_FECHAMENTO_RIO_MERCTIT             24445
+#define CM_BOLETIM_FECHAMENTO_RIO_INDICES             24444
+
+#define CM_BOLETIM_FECHAMENTO_RIO_4ULT_MESTRE         24443
+#define CM_BOLETIM_FECHAMENTO_RIO_4ULT_INDICE         24442
+#define CM_BOLETIM_FECHAMENTO_RIO_4ULT_COTACOES       24441
+
+#define CM_BOLETIM_FECHAMENTO_BOVESPA_MERCTIT         24440
+#define CM_BOLETIM_FECHAMENTO_BOVESPA_INDICES         24439
+
+#define CM_BOLETIM_FECHAMENTO_BOVESPA_4ULT_MESTRE     24438
+#define CM_BOLETIM_FECHAMENTO_BOVESPA_4ULT_COTACOES   24437
+
+#define CM_BOLETIM_FECHAMENTO_DATAS_RIO               24436
+#define CM_BOLETIM_FECHAMENTO_DATAS_SAOPAULO          24435
+
+#define CM_BOLETIM_INSTANTANEO                        24434
+
+#define CM_SERIES_HISTORICAS_ACOES                    24433
+#define CM_SERIES_HISTORICAS_INDICES                  24432
+
+#define CM_RELACAO_DE_NEGOCIOS                        24431
+
+//----------------------------------------------------------------------------//
+
+/*-----------------------------------*
+ *     Button Tips ( Identifiers )   *
+ *-----------------------------------*/
+
+#define CM_EDIT_COPY_TIP         CM_EDIT_COPY        + 1000
+#define CM_FILENEW_TIP				CM_FILENEW          + 1000
+#define CM_FILEOPEN_TIP				CM_FILEOPEN         + 1000
+#define CM_FILESAVE_TIP				CM_FILESAVE         + 1000
+#define CM_FILEPRINT_TIP			CM_FILEPRINT        + 1000
+
+#define CM_TERMINAL_TIP          CM_TERMINAL         + 1000
+#define CM_STOCKDIAL_TIP			CM_STOCKDIAL        + 1000
+#define CM_STOCKHANGUP_TIP			CM_STOCKHANGUP      + 1000
+#define CM_CONFIG_TIP				CM_CONFIG           + 1000
+
+#define CM_GARQ_BOR_1_TIP        CM_GARQ_BOR_1       + 1000
+#define CM_GARQ_BOR_2_TIP        CM_GARQ_BOR_2       + 1000
+#define CM_GARQ_BOR_3_TIP        CM_GARQ_BOR_3       + 1000
+#define CM_GARQ_BOR_4_TIP        CM_GARQ_BOR_4       + 1000
+#define CM_GARQ_BOR_5_TIP        CM_GARQ_BOR_5       + 1000
+
+#define CM_GARQ_BR_TIP           CM_GARQ_BR          + 1000
+#define CM_GARQ_BRI_TIP          CM_GARQ_BRI         + 1000
+
+#define CM_GARQ_BFR_1_TIP        CM_GARQ_BFR_1       + 1000
+#define CM_GARQ_BFR_2_TIP        CM_GARQ_BFR_2       + 1000
+#define CM_GARQ_BFR_3_TIP        CM_GARQ_BFR_3       + 1000
+
+#define CM_GARQ_BRG_TIP          CM_GARQ_BRG         + 1000
+
+#define CM_GARQ_BS_TIP           CM_GARQ_BS          + 1000
+#define CM_GARQ_BSI_TIP          CM_GARQ_BSI         + 1000
+
+#define CM_GARQ_BAS_1_TIP        CM_GARQ_BAS_1       + 1000
+#define CM_GARQ_BAS_2_TIP        CM_GARQ_BAS_2       + 1000
+
+#define CM_GARQ_BRJDATA_TIP      CM_GARQ_BRJDATA     + 1000
+#define CM_GARQ_BSPDATA_TIP      CM_GARQ_BSPDATA     + 1000
+
+#define CM_GARQ_BIG_TIP       	CM_GARQ_BIG         + 1000
+#define CM_GARQ_NEG_TIP       	CM_GARQ_NEG         + 1000
+
+#define CM_GARQ_HIS_TIP          CM_GARQ_HIS         + 1000
+#define CM_GARQ_IND_TIP          CM_GARQ_IND         + 1000
+
+#define CM_BEGIN_TIP             CM_BEGIN            + 1000
+#define CM_FASTBACKWARD_TIP      CM_FASTBACKWARD     + 1000
+#define CM_BACKWARD_TIP          CM_BACKWARD         + 1000
+#define CM_FORWARD_TIP           CM_FORWARD          + 1000
+#define CM_FASTFORWARD_TIP       CM_FASTFORWARD      + 1000
+#define CM_END_TIP               CM_END              + 1000
+
+#define IDC_MERCADO_AVISTA_TIP	IDC_MERCADO_AVISTA  + 1000
+#define IDC_MERCADO_TERMO_TIP		IDC_MERCADO_TERMO   + 1000
+#define IDC_MERCADO_OPCOES_TIP   IDC_MERCADO_OPCOES  + 1000
+#define IDC_MERCADO_FUTURO_TIP	IDC_MERCADO_FUTURO  + 1000
+
+//----------------------------------------------------------------------------//
+
+/*-----------------------------------*
+ *         Dialog Identifiers        *
+ *-----------------------------------*/
+
+#define AboutDlg                 12101
+#define SplashDialog             12102
+#define ModemDlgFrame            12103
+#define ModemDlgTab1             12104
+#define ModemDlgTab2             12105
+#define ModemDlgTab3             12106
+#define ModemDlgTab4             12107
+#define DialDlg                  12108
+#define QueryStockMAIN           12109
+#define QueryStock               12110
+#define QryStkTEMPLATE           12111
+#define QueryStockDays           12112
+#define QueryStockCombine        12113
+
+//----------------------------------------------------------------------------//
+
+/*-----------------------------------*
+ *  Gadgets and Bitmaps Identifiers  *
+ *-----------------------------------*/
+
+#define SPLASHBITMAP					6101
+#define GRAYINGBITMAP				6102
+#define ABOUTBITMAP					6103
+#define IDG_SLOT1                6104
+#define IDG_SLOT2                6105
+#define IDG_SLOT3                6106
+#define IDG_CLOCK                6107
+#define IDC_VCR1						6108
+#define IDC_GRIDVBX					6109
+#define ID_MENUACCEL             6110
+
+//----------------------------------------------------------------------------//
+
+/*-----------------------------------*
+ *         Menus Identifiers         *
+ *-----------------------------------*/
+
+#define IDM_FRAME_MENU           1
+#define IDM_NO_GARQ              2
+#define IDM_TERMINAL             3
+
+#define IDM_GARQ_BOR_1           CM_GARQ_BOR_1
+#define IDM_GARQ_BOR_2           CM_GARQ_BOR_2
+#define IDM_GARQ_BOR_3           CM_GARQ_BOR_3
+#define IDM_GARQ_BOR_4           CM_GARQ_BOR_4
+#define IDM_GARQ_BOR_5           CM_GARQ_BOR_5
+
+#define IDM_GARQ_BR              CM_GARQ_BR
+#define IDM_GARQ_BRI             CM_GARQ_BRI
+
+#define IDM_GARQ_BFR_1           CM_GARQ_BFR_1
+#define IDM_GARQ_BFR_2           CM_GARQ_BFR_2
+#define IDM_GARQ_BFR_3           CM_GARQ_BFR_3
+
+#define IDM_GARQ_BS              CM_GARQ_BS
+#define IDM_GARQ_BSI             CM_GARQ_BSI
+
+#define IDM_GARQ_BAS_1           CM_GARQ_BAS_1
+#define IDM_GARQ_BAS_2           CM_GARQ_BAS_2
+
+#define IDM_GARQ_BRJDATA         CM_GARQ_BRJDATA
+#define IDM_GARQ_BSPDATA         CM_GARQ_BSPDATA
+
+#define IDM_GARQ_BIG             CM_GARQ_BIG
+#define IDM_GARQ_NEG             CM_GARQ_NEG
+
+#define IDM_GARQ_HIS             CM_GARQ_HIS
+#define IDM_GARQ_IND             CM_GARQ_IND
+
+//----------------------------------------------------------------------------//
+
+/*-----------------------------------*
+ *         Bitmap Identifiers        *
+ *-----------------------------------*/
+
+#define IDB_MERCADO_AVISTA1		IDC_MERCADO_AVISTA+1000
+#define IDB_MERCADO_AVISTA3		IDC_MERCADO_AVISTA+3000
+#define IDB_MERCADO_AVISTA5		IDC_MERCADO_AVISTA+5000
+
+#define IDB_MERCADO_TERMO1			IDC_MERCADO_TERMO+1000
+#define IDB_MERCADO_TERMO3       IDC_MERCADO_TERMO+3000
+#define IDB_MERCADO_TERMO5       IDC_MERCADO_TERMO+5000
+
+#define IDB_MERCADO_OPCOES1		IDC_MERCADO_OPCOES+1000
+#define IDB_MERCADO_OPCOES3      IDC_MERCADO_OPCOES+3000
+#define IDB_MERCADO_OPCOES5      IDC_MERCADO_OPCOES+5000
+
+#define IDB_MERCADO_FUTURO1		IDC_MERCADO_FUTURO+1000
+#define IDB_MERCADO_FUTURO3		IDC_MERCADO_FUTURO+3000
+#define IDB_MERCADO_FUTURO5      IDC_MERCADO_FUTURO+5000
+
+#define IDB_ADD1 						IDC_ADD+1000
+#define IDB_ADD3						IDC_ADD+3000
+#define IDB_ADD5						IDC_ADD+5000
+
+#define IDB_REMOVE1					IDC_REMOVE+1000
+#define IDB_REMOVE3					IDC_REMOVE+3000
+#define IDB_REMOVE5					IDC_REMOVE+5000
+
+#define IDB_CLEAR1					IDC_CLEAR+1000
+#define IDB_CLEAR3					IDC_CLEAR+3000
+#define IDB_CLEAR5					IDC_CLEAR+5000
+
+#define IDB_OK							IDOK+1000
+#define IDB_OKDOWN					IDOK+3000
+#define IDB_OKFOCUS					IDOK+5000
+
+#define IDB_CANCEL					IDCANCEL+1000
+#define IDB_CANCELDOWN				IDCANCEL+3000
+#define IDB_CANCELFOCUS				IDCANCEL+5000
+
+#endif   // _WINBOLSA_RH
+

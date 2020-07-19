@@ -1,0 +1,25 @@
+//-------------------------------------------------//
+//                                                 //
+//    INSTALL. RH                                  //
+//                                                 //
+//    Copyright (C) 1994, 1995 by Eduardo Bezerra  //
+//                                                 //
+//-------------------------------------------------//
+
+
+#ifndef _INSTALL_RH
+	#define _INSTALL_RH
+
+#define InstallDialog	100
+#define InstallIcon		102
+
+#define IDC_EDIT1       103
+#define IDC_EDIT2       104
+#define IDC_EDIT3       105
+#define IDC_EDIT4       106
+
+#define IDC_STATIC1     107
+#define IDC_STATIC2     108
+
+#endif	// _INSTALL_RH
+
